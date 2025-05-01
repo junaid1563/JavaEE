@@ -5,15 +5,19 @@
 	<title>Hello World</title>
 </h:head>
 <h:body>
-	
+
 	<h:form>
 		<h:outputLabel for="input" value="Input" />
-		<h:inputText id="input" value="#{helloWorld.input}" />
+		<h:inputText id="input" value="#{helloWorld.message.text}" />
 		<h:commandButton value="Submit" action="#{helloWorld.submit}">
-			<f:ajax execute="@form" render=":output" />
+			<f:ajax execute="@form" render=":table" />
 		</h:commandButton>
 	</h:form>
-
-	<h:outputText id="output" value="#{helloWorld.output}" />
+	<h:dataTable id="table" value="#{helloWorld.messageList}" var="message">
+		<h:column>
+			<f:facet name="header">Message</f:facet>
+			<h:outputText value="#{message.text}" />
+		</h:column>
+	</h:dataTable>
 </h:body>
 </html>
