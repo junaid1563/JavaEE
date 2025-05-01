@@ -13,7 +13,7 @@
 			<f:ajax execute="@form" render=":table" />
 		</h:commandButton>
 	</h:form>
-	<h:dataTable id="table" value="#{helloWorld.messageList}" var="message">
+	<h:dataTable id="table" value="#{helloWorld.messages}" var="message">
 		<h:column>
 			<f:facet name="header">Message</f:facet>
 			<h:outputText value="#{message.text}" />
